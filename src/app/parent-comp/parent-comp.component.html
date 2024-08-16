@@ -1,0 +1,8 @@
+<app-child-comp [arrayList]="userData" (childData)="ongetData($event)"></app-child-comp>
+<h1>---------------PARENT DATA-------------</h1>
+<ul>
+    <li *ngFor="let data of childEmitData">
+        {{data.country}} {{data.number}}
+    </li>
+</ul>
+<button (click)="onClick()">Fetch Data</button>
