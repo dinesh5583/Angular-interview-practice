@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { ChildCompComponent } from '../child-comp/child-comp.component';
 
 @Component({
   selector: 'app-parent-comp',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./parent-comp.component.scss']
 })
 export class ParentCompComponent {
+  @ViewChild(ChildCompComponent) child!:ChildCompComponent
   userData:any[]=[];
   childEmitData:any[]=[]
   onClick(){
@@ -19,5 +21,8 @@ export class ParentCompComponent {
   }
   ongetData(event:any){
     this.childEmitData=event;
+  }
+  ngAfterViewInit(){
+    // console.log(this.child.inputRef.nativeElement.value)
   }
 }
